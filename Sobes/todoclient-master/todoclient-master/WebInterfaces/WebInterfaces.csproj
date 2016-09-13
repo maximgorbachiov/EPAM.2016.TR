@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IIdGenerator.cs" />
     <Compile Include="Interfaces\IProxyServiceContract.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IServiceStateLoader.cs" />
