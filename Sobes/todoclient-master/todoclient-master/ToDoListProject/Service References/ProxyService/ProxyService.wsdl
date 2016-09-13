@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProxyService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50000/WcfService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50000/WcfService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50000/WcfService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WebInterfaces.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProxyServiceContract_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="IProxyServiceContract_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProxyServiceContract_CreateItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateItem" />
+  </wsdl:message>
+  <wsdl:message name="IProxyServiceContract_CreateItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProxyServiceContract_UpdateItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItem" />
+  </wsdl:message>
+  <wsdl:message name="IProxyServiceContract_UpdateItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProxyServiceContract_DeleteItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItem" />
+  </wsdl:message>
+  <wsdl:message name="IProxyServiceContract_DeleteItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserProxyService_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserProxyService_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProxyServiceContract">
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsam:Action="http://tempuri.org/IProxyServiceContract/GetAll" message="tns:IProxyServiceContract_GetAll_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IProxyServiceContract/GetAllResponse" message="tns:IProxyServiceContract_GetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateItem">
+      <wsdl:input wsam:Action="http://tempuri.org/IProxyServiceContract/CreateItem" message="tns:IProxyServiceContract_CreateItem_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IProxyServiceContract/CreateItemResponse" message="tns:IProxyServiceContract_CreateItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <wsdl:input wsam:Action="http://tempuri.org/IProxyServiceContract/UpdateItem" message="tns:IProxyServiceContract_UpdateItem_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IProxyServiceContract/UpdateItemResponse" message="tns:IProxyServiceContract_UpdateItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <wsdl:input wsam:Action="http://tempuri.org/IProxyServiceContract/DeleteItem" message="tns:IProxyServiceContract_DeleteItem_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IProxyServiceContract/DeleteItemResponse" message="tns:IProxyServiceContract_DeleteItem_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IUserProxyService">
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsam:Action="http://tempuri.org/IUserProxyService/CreateUser" message="tns:IUserProxyService_CreateUser_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IUserProxyService/CreateUserResponse" message="tns:IUserProxyService_CreateUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IProxyServiceContract" type="tns:IProxyServiceContract">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAll">
+      <soap:operation soapAction="http://tempuri.org/IProxyServiceContract/GetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateItem">
+      <soap:operation soapAction="http://tempuri.org/IProxyServiceContract/CreateItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <soap:operation soapAction="http://tempuri.org/IProxyServiceContract/UpdateItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <soap:operation soapAction="http://tempuri.org/IProxyServiceContract/DeleteItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IUserProxyService" type="tns:IUserProxyService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/IUserProxyService/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProxyService">
+    <wsdl:port name="BasicHttpBinding_IProxyServiceContract" binding="tns:BasicHttpBinding_IProxyServiceContract">
+      <soap:address location="http://localhost:50000/WcfService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IUserProxyService" binding="tns:BasicHttpBinding_IUserProxyService">
+      <soap:address location="http://localhost:50000/WcfService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
