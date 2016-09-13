@@ -5,8 +5,18 @@ namespace WebInterfaces.Interfaces
 {
     public interface IRepository
     {
-        List<RequestItem> Load();
+        int Add(ToDoItemData item);
 
-        void Save(List<RequestItem> data);
+        void Update(ToDoItemData item);
+
+        void Remove(int id);
+
+        ToDoItemData GetById(int id);
+
+        ToDoItemData GetByName(string name);
+
+        List<ToDoItemData> Load();
+
+        void Save(List<ToDoItemData> data);
     }
 }

@@ -16,5 +16,8 @@ namespace WebInterfaces.Model
 
         [DataMember]
         public string Name { get; set; }
+
+        [DataMember]
+        public int ServiceId { get; set; }
     }
 }

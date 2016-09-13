@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.ServiceModel;
@@ -26,7 +25,8 @@ namespace WcfProxy.WcfService
 
         private readonly string serviceApiUrl;
 
-        private List<RequestItem> currentData = new List<RequestItem>(); 
+        private List<RequestItem> currentData = new List<RequestItem>();
+        private List<ToDoItemData> toDoItemData = new List<ToDoItemData>();
 
         public ProxyService(IRepository repository, string serviceApiUrl)
         {
@@ -46,22 +46,22 @@ namespace WcfProxy.WcfService
             return result;
         }
 
-        public void CreateItem(ToDoItemData item)
+        public async void CreateItem(ToDoItemData item)
         {
-            httpClient.PostAsJsonAsync(serviceApiUrl + CreateUrl, item)
-                .Result.EnsureSuccessStatusCode();
+            (await httpClient.PostAsJsonAsync(serviceApiUrl + CreateUrl, item))
+                .EnsureSuccessStatusCode();
         }
 
-        public void UpdateItem(ToDoItemData item)
+        public async void UpdateItem(ToDoItemData item)
         {
-            httpClient.PutAsJsonAsync(serviceApiUrl + UpdateUrl, item)
-                .Result.EnsureSuccessStatusCode();
+            (await httpClient.PutAsJsonAsync(serviceApiUrl + UpdateUrl, item))
+                .EnsureSuccessStatusCode();
         }
 
-        public void DeleteItem(int id)
+        public async void DeleteItem(int id)
         {
-            httpClient.DeleteAsync(string.Format(serviceApiUrl + DeleteUrl, id))
-                .Result.EnsureSuccessStatusCode();
+            (await httpClient.DeleteAsync(string.Format(serviceApiUrl + DeleteUrl, id)))
+                .EnsureSuccessStatusCode();
         }
 
         public int CreateUser(string userName)
@@ -74,7 +74,7 @@ namespace WcfProxy.WcfService
 
         void IServiceStateLoader.LoadServiceState()
         {
-            currentData = repository.Load();
+            toDoItemData = repository.Load();
 
             foreach (var item in currentData)
             {
@@ -95,7 +95,7 @@ namespace WcfProxy.WcfService
 
         void IServiceStateLoader.SaveServiceState()
         {
-            repository.Save(currentData);
+            repository.Save(toDoItemData);
         }
     }
 }
