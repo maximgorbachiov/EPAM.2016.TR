@@ -24,7 +24,7 @@ namespace ToDoListProject.Controllers
         public IList<ToDoItemViewModel> Get()
         {
             if (isGetFirst)
-                Thread.Sleep(10000);
+                Thread.Sleep(15000);
             isGetFirst = false;
             var userId = userService.GetOrCreateUser();
             return todoService.GetItems(userId);
