@@ -1,32 +1,63 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
+﻿<html><head>
     <title>ToDo list</title>
-    <meta charset="utf-8"/>
-    
-    <link rel="stylesheet" type="text/css" href="Styles/site.css">
+    <meta charset="utf-8">
 
+    <link rel="stylesheet" type="text/css" href="Styles/site.css">
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css">
     <script src="Scripts/jquery-3.1.0.js" language="javascript"></script>
     <script src="Scripts/todo.js" language="javascript"></script>
 </head>
 <body>
-    <table id="tasks">
+    <div class="main">
+        <div class="container">
+            <div id="create-container">
+                    <div class="form-group">
+                        <div class="col-xs-1">
+                            <label for="completed">Completed</label>
+                            <input class="form-control checkbox-inline" id="completed" type="checkbox">
+                        </div>
+                        <div class="col-lg-offset-1 col-xs-6">
+                            <label for="task">Task</label>
+                            <input class="form-control" id="task" type="text">
+                        </div>
+                        <div class="col-xs-3">
+                            <label for="action">Action</label>
+                            <input class="form-control btn-info" id="action" value="Create" type="button">
+                        </div>
+                    </div>
+            </div>
+            <div id="output">
+                <h3>ToDo List</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Completed</th>
+                            <th>Task</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="new">
+
+                    </tbody>
+                </table>              
+            </div>
+        </div>
+    </div>
+    <!--<table id="tasks">
         <thead>
             <tr>
                 <th>Completed</th>
                 <th>Task</th>
                 <th>Actions</th>
             </tr>
-            <!-- The row for creating new items. -->
             <tr id="new">
                 <td><input type='checkbox' id="newCompleted" /></td>
                 <td><input type='text' id="newName" /></td>
                 <td><input type='button' id="newCreate" value='Create' /></td>
             </tr>
         </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
-</body>
-</html>
+        <tbody></tbody>
+    </table>-->
+
+
+</body></html>

@@ -161,6 +161,7 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="Properties\DataSources\WebInterfaces.Model.ToDoItemData.datasource" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -179,9 +180,6 @@
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="scripts\todo.js" />
     <None Include="Service References\ProxyService\ProxyService.wsdl" />
-    <Content Include="Service References\ProxyService\ToDoListProject.ProxyService.ToDoItemData.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\ProxyService\WcfService.disco" />
     <None Include="Service References\ProxyService\configuration91.svcinfo" />
     <None Include="Service References\ProxyService\configuration.svcinfo" />
@@ -190,15 +188,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Web.config" />
-    <None Include="Service References\ProxyService\WcfService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProxyService\WcfService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ProxyService\WcfService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -231,6 +220,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <None Include="Service References\ProxyService\WcfService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyService\WcfService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProxyService\WcfService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -244,6 +242,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebInterfaces\WebInterfaces.csproj">
+      <Project>{20f0748c-424e-454b-8dbf-c0378ddfcf1e}</Project>
+      <Name>WebInterfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ProxyService\" />

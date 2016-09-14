@@ -43,11 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IIdGenerator.cs" />
+    <Compile Include="Interfaces\IItemRepository.cs" />
     <Compile Include="Interfaces\IProxyServiceContract.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IServiceStateLoader.cs" />
     <Compile Include="Interfaces\IUserProxyService.cs" />
     <Compile Include="Model\Commands.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Request.cs" />
     <Compile Include="Model\RequestItem.cs" />
     <Compile Include="Model\ToDoItemData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

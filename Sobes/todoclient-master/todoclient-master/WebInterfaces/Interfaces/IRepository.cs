@@ -1,22 +1,23 @@
 ﻿using System.Collections.Generic;
-using WebInterfaces.Model;
 
 namespace WebInterfaces.Interfaces
 {
-    public interface IRepository
+    public interface IRepository<T>
     {
-        int Add(ToDoItemData item);
+        int Add(T value);
 
-        void Update(ToDoItemData item);
+        void Update(T value);
 
         void Remove(int id);
 
-        ToDoItemData GetById(int id);
+        T GetById(int id);
 
-        ToDoItemData GetByName(string name);
+        T GetByName(string name);
 
-        List<ToDoItemData> Load();
+        List<T> Load();
 
-        void Save(List<ToDoItemData> data);
+        void Save(List<T> data);
+
+        void SaveChanges();
     }
 }

@@ -5,7 +5,7 @@ using WebInterfaces.Model;
 
 namespace WcfProxy.Repositories
 {
-    public class Repository : IRepository
+    /*public class Repository : IRepository
     {
         private List<ToDoItemData> data = new List<ToDoItemData>();
 
@@ -62,5 +62,5 @@ namespace WcfProxy.Repositories
         {
             this.data = data;
         }
-    }
+    }*/
 }

@@ -9,140 +9,29 @@
 //------------------------------------------------------------------------------
 
 namespace ToDoListProject.ProxyService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ToDoItemData", Namespace="http://schemas.datacontract.org/2004/07/WebInterfaces.Model")]
-    [System.SerializableAttribute()]
-    public partial class ToDoItemData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CommandField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsCompletedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ToDoIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIdField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Command {
-            get {
-                return this.CommandField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CommandField, value) != true)) {
-                    this.CommandField = value;
-                    this.RaisePropertyChanged("Command");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsCompleted {
-            get {
-                return this.IsCompletedField;
-            }
-            set {
-                if ((this.IsCompletedField.Equals(value) != true)) {
-                    this.IsCompletedField = value;
-                    this.RaisePropertyChanged("IsCompleted");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ToDoId {
-            get {
-                return this.ToDoIdField;
-            }
-            set {
-                if ((this.ToDoIdField.Equals(value) != true)) {
-                    this.ToDoIdField = value;
-                    this.RaisePropertyChanged("ToDoId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserId {
-            get {
-                return this.UserIdField;
-            }
-            set {
-                if ((this.UserIdField.Equals(value) != true)) {
-                    this.UserIdField = value;
-                    this.RaisePropertyChanged("UserId");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyService.IProxyServiceContract")]
     public interface IProxyServiceContract {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProxyServiceContract/GetAll", ReplyAction="http://tempuri.org/IProxyServiceContract/GetAllResponse")]
-        ToDoListProject.ProxyService.ToDoItemData[] GetAll(int userId);
+        WebInterfaces.Model.ToDoItemData[] GetAll(int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProxyServiceContract/GetAll", ReplyAction="http://tempuri.org/IProxyServiceContract/GetAllResponse")]
-        System.Threading.Tasks.Task<ToDoListProject.ProxyService.ToDoItemData[]> GetAllAsync(int userId);
+        System.Threading.Tasks.Task<WebInterfaces.Model.ToDoItemData[]> GetAllAsync(int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProxyServiceContract/CreateItem", ReplyAction="http://tempuri.org/IProxyServiceContract/CreateItemResponse")]
-        void CreateItem(ToDoListProject.ProxyService.ToDoItemData item);
+        void CreateItem(WebInterfaces.Model.ToDoItemData item);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProxyServiceContract/CreateItem", ReplyAction="http://tempuri.org/IProxyServiceContract/CreateItemResponse")]
-        System.Threading.Tasks.Task CreateItemAsync(ToDoListProject.ProxyService.ToDoItemData item);
+        System.Threading.Tasks.Task CreateItemAsync(WebInterfaces.Model.ToDoItemData item);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProxyServiceContract/UpdateItem", ReplyAction="http://tempuri.org/IProxyServiceContract/UpdateItemResponse")]
-        void UpdateItem(ToDoListProject.ProxyService.ToDoItemData item);
+        void UpdateItem(WebInterfaces.Model.ToDoItemData item);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProxyServiceContract/UpdateItem", ReplyAction="http://tempuri.org/IProxyServiceContract/UpdateItemResponse")]
-        System.Threading.Tasks.Task UpdateItemAsync(ToDoListProject.ProxyService.ToDoItemData item);
+        System.Threading.Tasks.Task UpdateItemAsync(WebInterfaces.Model.ToDoItemData item);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProxyServiceContract/DeleteItem", ReplyAction="http://tempuri.org/IProxyServiceContract/DeleteItemResponse")]
         void DeleteItem(int id);
@@ -178,27 +67,27 @@ namespace ToDoListProject.ProxyService {
                 base(binding, remoteAddress) {
         }
         
-        public ToDoListProject.ProxyService.ToDoItemData[] GetAll(int userId) {
+        public WebInterfaces.Model.ToDoItemData[] GetAll(int userId) {
             return base.Channel.GetAll(userId);
         }
         
-        public System.Threading.Tasks.Task<ToDoListProject.ProxyService.ToDoItemData[]> GetAllAsync(int userId) {
+        public System.Threading.Tasks.Task<WebInterfaces.Model.ToDoItemData[]> GetAllAsync(int userId) {
             return base.Channel.GetAllAsync(userId);
         }
         
-        public void CreateItem(ToDoListProject.ProxyService.ToDoItemData item) {
+        public void CreateItem(WebInterfaces.Model.ToDoItemData item) {
             base.Channel.CreateItem(item);
         }
         
-        public System.Threading.Tasks.Task CreateItemAsync(ToDoListProject.ProxyService.ToDoItemData item) {
+        public System.Threading.Tasks.Task CreateItemAsync(WebInterfaces.Model.ToDoItemData item) {
             return base.Channel.CreateItemAsync(item);
         }
         
-        public void UpdateItem(ToDoListProject.ProxyService.ToDoItemData item) {
+        public void UpdateItem(WebInterfaces.Model.ToDoItemData item) {
             base.Channel.UpdateItem(item);
         }
         
-        public System.Threading.Tasks.Task UpdateItemAsync(ToDoListProject.ProxyService.ToDoItemData item) {
+        public System.Threading.Tasks.Task UpdateItemAsync(WebInterfaces.Model.ToDoItemData item) {
             return base.Channel.UpdateItemAsync(item);
         }
         

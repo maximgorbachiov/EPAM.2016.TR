@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Web.Http;
 using ToDoListProject.Models;
 using ToDoListProject.ProxyService;
@@ -14,12 +15,17 @@ namespace ToDoListProject.Controllers
         private readonly ToDoService todoService = new ToDoService(proxy);
         private readonly UserService userService = new UserService(userProxyService);
 
+        private static bool isGetFirst = true;
+
         /// <summary>
         /// Returns all todo-items for the current user.
         /// </summary>
         /// <returns>The list of todo-items.</returns>
         public IList<ToDoItemViewModel> Get()
         {
+            if (isGetFirst)
+                Thread.Sleep(10000);
+            isGetFirst = false;
             var userId = userService.GetOrCreateUser();
             return todoService.GetItems(userId);
         }

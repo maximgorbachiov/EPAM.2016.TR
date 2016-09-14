@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading;
 using System.Web;
 using ToDoListProject.ProxyService;
 
@@ -24,7 +25,7 @@ namespace ToDoListProject.Services
 
         private readonly HttpClient httpClient;
 
-        private IUserProxyService service;
+        private readonly IUserProxyService service;
 
         /// <summary>
         /// Creates the service.

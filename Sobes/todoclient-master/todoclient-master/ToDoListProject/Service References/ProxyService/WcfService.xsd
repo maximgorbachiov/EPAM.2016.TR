@@ -8,9 +8,9 @@
   <xs:element name="ArrayOfToDoItemData" nillable="true" type="tns:ArrayOfToDoItemData" />
   <xs:complexType name="ToDoItemData">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Command" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsCompleted" type="xs:boolean" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceId" type="xs:int" />
       <xs:element minOccurs="0" name="ToDoId" type="xs:int" />
       <xs:element minOccurs="0" name="UserId" type="xs:int" />
     </xs:sequence>
